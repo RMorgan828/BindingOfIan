@@ -105,24 +105,24 @@ def create_tile(file_name, len, wid):
 					list_monster.append(classes.base_monster(x, y, 30, 40))
 				# Door tiles - Right spawn
 				elif i == 'A':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/map.txt', 'L'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/map.txt', 'L'))
 				elif i == 'B':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/map2.txt', 'R'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/map2.txt', 'R'))
 				elif i == 'C':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/map3.txt', 'R'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/map3.txt', 'R'))
 				elif i == 'D':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/map1.txt', 'R'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/map1.txt', 'R'))
 				# Door tiles - Left spawn
 				elif i == 'a':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/map1.txt', 'L'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/map1.txt', 'L'))
 				elif i == 'b':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/map2.txt', 'L'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/map2.txt', 'L'))
 				elif i == 'c':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/map3.txt', 'L'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/map3.txt', 'L'))
 				elif i == 'd':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/map1.txt', 'L'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/map1.txt', 'L'))
 				elif i == '=':
-					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Maps/TreasureRoom.txt', 'L'))
+					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 0, 0, 0, False, True, 'Game/Maps/TreasureRoom.txt', 'L'))
 				elif i == '*':
 					list_tile.append(classes.tile(x, y, tile_size_x, tile_size_y, 139, 0, 0, False, False))
 					list_monster.append(classes.Final_Boss(x, y, 50, 45))
@@ -139,11 +139,11 @@ while try_again == True:
 	clock = pygame.time.Clock() #created a clock object
 	pause = False #Becomes true if Player presses escape
 	item_info = pygame.Rect(20, 800, 70, 70) #Allows for bottom left of screen to be interactable
-	rude_buster = classes.item('Images/rude_buster.webp', 450, 450, 40, 40) #This is and following instances create items with their images, location, and dimensions.
+	rude_buster = classes.item('Game/Images/rude_buster.webp', 450, 450, 40, 40) #This is and following instances create items with their images, location, and dimensions.
 	rude_buster_collected = False #Boolean of if item has been collected
-	Boomerang = classes.item('Images/boomerang.png', 450, 450, 50, 50)
+	Boomerang = classes.item('Game/Images/boomerang.png', 450, 450, 50, 50)
 	Boomerang_collected = False
-	Cannon = classes.item('Images/CannonBall.webp', 750, 450, 60, 60)
+	Cannon = classes.item('Game/Images/CannonBall.webp', 750, 450, 60, 60)
 	CannonCollected = False
 	current_slot = 0 #Starts with current selected slot to be 0
 	#Checks for different states have been achieved in game
@@ -163,7 +163,7 @@ while try_again == True:
 
 	ian = classes.player()
 	#Initializes the starting room using the map text file, Returns if its a final room, and automatically returns false once called
-	FinalRoom, Tutorial= create_tile('Maps/map3.txt', screen_length, screen_height)
+	FinalRoom, Tutorial= create_tile('Game/Maps/map3.txt', screen_length, screen_height)
 	running = True
 	Tutorial = True #To counteract the original False initializing
 	#Value that helps determine how long the user is invulnerable for after attacked
@@ -378,7 +378,7 @@ while try_again == True:
 						ian.rect.x = 750
 					if spawn == 'L':
 						ian.rect.x = 150
-					if room == "Maps/TreasureRoom.txt":
+					if room == "Game/Maps/TreasureRoom.txt":
 						FinalRoom = True
 
 					FinalRoom, Tutorial = create_tile(room, screen_length, screen_height)
@@ -438,29 +438,29 @@ while try_again == True:
 			screen.blit(rude_buster.image, (450,450))
 		if not rude_buster_collected and ian.rect.colliderect(rude_buster.rect):
 			rude_buster_collected = True
-			list_items[current_slot] = [classes.base_weapon, 'Images/rude_buster.webp', "Starter weapon: NO cooldown | Attack: 1 | Speed: 150"]
+			list_items[current_slot] = [classes.base_weapon, 'Game/Images/rude_buster.webp', "Starter weapon: NO cooldown | Attack: 1 | Speed: 150"]
 			current_slot+=1
 		#Boomerang is only collectable after defeating boss
 		if any(isinstance(item, classes.boss) for item in list_monster):
 			goneAgainstBoss = True
 		if not Boomerang_collected and goneAgainstBoss and bossKilled and len(list_monster) == 0:
-			Boomerang = classes.item('Images/boomerang.png', 450, 450, 50, 50)
+			Boomerang = classes.item('Game/Images/boomerang.png', 450, 450, 50, 50)
 			if not pause:
 				screen.blit(Boomerang.image, (450,450))
 		if bossKilled and not Boomerang_collected and ian.rect.colliderect(Boomerang.rect) and goneAgainstBoss and not any(isinstance(item, classes.boss) for item in list_monster):
 			Boomerang_collected = True
-			list_items[current_slot] = [classes.boomerang, 'Images/boomerang.png', "Boomerang: Must comeback before thrown again | Attack: 2 | Speed: 200/350"]
+			list_items[current_slot] = [classes.boomerang, 'Game/Images/boomerang.png', "Boomerang: Must comeback before thrown again | Attack: 2 | Speed: 200/350"]
 			current_slot+=1
 		#Cannon is Collectable after defeating final Boss
 		if any(isinstance(item, classes.Final_Boss) for item in list_monster):
 			GoneAgainstFinalBoss = True
 		if not CannonCollected and GoneAgainstFinalBoss and FinalBossKilled:
-			Cannon = classes.item('Images/CannonBall.webp', 750, 450, 60, 60)
+			Cannon = classes.item('Game/Images/CannonBall.webp', 750, 450, 60, 60)
 			if not pause:
 				screen.blit(Cannon.image, (750,450))
 		if FinalBossKilled and not CannonCollected and ian.rect.colliderect(Cannon.rect) and GoneAgainstFinalBoss and FinalBossKilled:
 			CannonCollected = True
-			list_items[current_slot] = [classes.Cannon, 'Images/CannonBall.webp', "Cannon ball: Goes through Walls! | Attack: 7 | Speed: 500"]
+			list_items[current_slot] = [classes.Cannon, 'Game/Images/CannonBall.webp', "Cannon ball: Goes through Walls! | Attack: 7 | Speed: 500"]
 			current_slot+=1
 		#The display that appears when paused by pressing escape
 		if pause:
@@ -472,13 +472,13 @@ while try_again == True:
 			screen.blit(paused, (700,30))
 			screen.blit(font.render('Press any button to continue!', True, (0, 0, 0)),(300, 450))
 			if rude_buster_collected:
-				screen.blit(pygame.transform.scale(pygame.image.load('Images/rude_buster.webp').convert_alpha(), (50,50)), (50,50))
+				screen.blit(pygame.transform.scale(pygame.image.load('Game/Images/rude_buster.webp').convert_alpha(), (50,50)), (50,50))
 				screen.blit(font.render('Base Attack | Cooldown: None | Damage: 1 | Specialties: None', True, (0, 0, 0)),(100, 75))
 			if Boomerang_collected:
-				screen.blit(pygame.transform.scale(pygame.image.load('Images/boomerang.png').convert_alpha(), (50,50)), (50,150))
+				screen.blit(pygame.transform.scale(pygame.image.load('Game/Images/boomerang.png').convert_alpha(), (50,50)), (50,150))
 				screen.blit(font.render('Boomerang | Cooldown: Until it comes Back | Damage: 2 | Damage in and out', True, (0, 0, 0)),(100, 175))
 			if CannonCollected:
-				screen.blit(pygame.transform.scale(pygame.image.load('Images/CannonBall.webp').convert_alpha(), (50,50)), (50, 250))
+				screen.blit(pygame.transform.scale(pygame.image.load('Game./Images/CannonBall.webp').convert_alpha(), (50,50)), (50, 250))
 				screen.blit(font.render('Cannon | Cooldown: 1 sec | Damage: 7 | Specialties: Goes Through Walls!', True, (0, 0, 0)),(100, 275))
 		if FinalRoom and len(list_monster) == 0: #If there are no more monsters left in the final room, display you win!
 			screen.blit(winFont.render("YOU WIN", True, (0,0,0)), (300, 450))
