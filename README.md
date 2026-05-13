@@ -1,6 +1,3 @@
-End of Semester Intro to Computer Science Project!
-I created this game over the span of 4 weeks for my computer science project,
-One criteria required for the project was advanced use of a topic that wasn't covered,
-and I knew setting up enemy and weapon types would be a great way to show of class instances that we werent taught.
+4 week End of Semester Intro to Computer Science Project!
 
-The inspiration is the Binding of Isaac!
+I built a dungeon crawler type game with a movable player, different enemy AI, multiple projectile types, interpretted text files for map changes, and a UI with health, item selection, and pause features.
