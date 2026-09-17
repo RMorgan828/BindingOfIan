@@ -169,7 +169,7 @@ while try_again == True:
 	#Value that helps determine how long the user is invulnerable for after attacked
 	invincibility_check = 0
 
-	#--------------------------------------------------Continuously Updates while game is Running----------------------------------------------------
+	#--------------------------------------------------Continuously Updates while  is Running----------------------------------------------------
 	while running:
 		if not pause:
 			#keeps track of time, increases by 60 every secong(60fps)
@@ -378,7 +378,7 @@ while try_again == True:
 						ian.rect.x = 750
 					if spawn == 'L':
 						ian.rect.x = 150
-					if room == "Maps/TreasureRoom.txt":
+					if room == "Game/Maps/TreasureRoom.txt":
 						FinalRoom = True
 
 					FinalRoom, Tutorial = create_tile(room, screen_length, screen_height)
