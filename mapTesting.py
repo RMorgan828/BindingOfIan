@@ -15,8 +15,8 @@ pygame.display.set_caption("Binding of Ian")
 font = pygame.font.Font(None, size = 30)
 winFont = pygame.font.Font(None, size= 100) #Specific Font for winning
 
-#Game over Overlay rects
-again = pygame.Rect(600,600, 80,80) 
+#Game over Overlay rects 
+again = pygame.Rect(600,600, 80,80)
 done_playing = pygame.Rect(150, 600, 80,80)
 game_over = pygame.Rect(0,0, 900, 900)
 
