@@ -70,7 +70,7 @@ class base_monster(entity):
 		self.damage = 2
 		self.type = 'base'
 		self.speed = 80
-		self.image = pygame.image.load('Images/chicken.png').convert_alpha()
+		self.image = pygame.image.load('Game/Images/chicken.png').convert_alpha()
 		self.image = pygame.transform.scale(self.image, (width,height))
 		self.status = 9999999999
 	#When called, moves the monster towards the player
@@ -132,7 +132,7 @@ class boss(entity):
 		self.damage = 3
 		self.type = 'boss'
 		self.speed = 40
-		self.image = pygame.image.load('Images/ghast.jpeg').convert_alpha()
+		self.image = pygame.image.load('Game/Images/ghast.jpeg').convert_alpha()
 		self.image = pygame.transform.scale(self.image, (width,height))
 		self.status = 'boss'
 	def move(self, player_x, player_y, delta_time, list_tile):
@@ -192,7 +192,7 @@ class Final_Boss(entity):
 			self.downright = True
 		else:
 			self.upleft = True
-		self.image = pygame.image.load('Images/finalboss.jpeg')
+		self.image = pygame.image.load('Game/Images/finalboss.jpeg')
 		self.image = pygame.transform.scale(self.image, (width, height))
 		self.status =  'Final Boss'
 	def move(self, deltatime):
@@ -246,7 +246,7 @@ class player(entity):
 		self.rect = pygame.Rect(200, screen_height/2, self.width, self.height)
 		self.speed = 150
 		self.health = 20
-		self.image = pygame.image.load('Images/sword.gif').convert()
+		self.image = pygame.image.load('Game/Images/sword.gif').convert()
 		self.image = pygame.transform.scale(self.image, (self.width, self.height))
 		self.invincibilty = False
 		self.currentSlot = 1
@@ -331,7 +331,7 @@ class base_weapon(projectile):
 		self.rect = pygame.Rect(self.x, self.y, 15, 15 )
 		self.dmg = 1
 		self.speed = 150
-		self.image = pygame.image.load('Images/rude_buster.webp').convert_alpha()
+		self.image = pygame.image.load('Game/Images/rude_buster.webp').convert_alpha()
 		self.image = pygame.transform.scale(self.image, (15,15))
 	def movement(self, delta_time):
 		try:
@@ -353,7 +353,7 @@ class boomerang(projectile):
 		self.rect = pygame.Rect(self.x, self.y, 30, 30)
 		self.speed = 200
 		self.range = 150
-		self.image = pygame.image.load('Images/boomerang.png').convert_alpha()
+		self.image = pygame.image.load('Game/Images/boomerang.png').convert_alpha()
 		self.image = pygame.transform.scale(self.image, (60,60))
 		self.start =  (player_x, player_y)
 		self.distance = 0
@@ -399,7 +399,7 @@ class Cannon(projectile):
 		self.rect = pygame.Rect(self.x, self.y, 70, 70)
 		self.dmg = 7
 		self.speed = 500
-		self.image = pygame.image.load('Images/CannonBall.webp').convert_alpha()
+		self.image = pygame.image.load('Game/Images/CannonBall.webp').convert_alpha()
 		self.image = pygame.transform.scale(self.image, (80,80))
 	def movement(self, delta_time):
 		try:
@@ -421,7 +421,7 @@ class boss_attack(projectile):
 		self.rect = pygame.Rect(boss_x, boss_y, 30, 30)
 		self.dmg = 3
 		self.speed = 150
-		self.image = pygame.image.load('Images/fireBall.webp').convert_alpha()
+		self.image = pygame.image.load('Game/Images/fireBall.webp').convert_alpha()
 		self.image = pygame.transform.scale(self.image, (30,30))
 		if boss_health <= 5:
 			self.speed = 300
